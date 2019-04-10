@@ -8,21 +8,27 @@ const server = net.createServer();
 server.listen(port, () => console.log(`Server up on ${port}`) );
 
 let socketPool = {};
+const allowedEvents = ['save', 'error'];
 
-server.on('connection', (socket) => {
+server.on('connection', handleConnection);
+
+function handleConnection(socket){
   const id = `Socket-${Math.random()}`;
+  console.log('Welcome', id);
   socketPool[id] = socket;
   socket.on('data', (buffer) => dispatchEvent(buffer));
   socket.on('close', () => {
     delete socketPool[id];
   });
-});
+}
 
-let dispatchEvent = (buffer) => {
+function dispatchEvent(buffer) {
   let text = buffer.toString().trim();
-  for (let socket in socketPool) {
-    socketPool[socket].write(`${event} ${text}`);
+  let [event, message] = text.split(/\s+(.*)/);
+  
+  if(allowedEvents.includes(event)){
+    for (let socket in socketPool) {
+      socketPool[socket].write(`${event}: ${message}`);
+    }
   }
-};
-
-
+}
