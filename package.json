@@ -2,9 +2,9 @@
   "name": "counter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "lint": "eslint **/*.js",
     "test": "jest --verbose --coverage",
     "test-watch": "jest --watchAll --verbose --coverage",
@@ -16,6 +16,9 @@
   "dependencies": {
     "eslint": "^5.16.0",
     "jest": "^24.7.1",
-    "lint": "^1.1.2"
+    "lint": "^1.1.2",
+    "net": "^1.0.2",
+    "require-directory": "^2.1.1",
+    "uuid": "^3.3.2"
   }
 }
