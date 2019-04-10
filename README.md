@@ -3,8 +3,8 @@
 This utilizes a TCP connection and sockets to connect an application and logger to a server, and relay information between the two files through the server.s
 
 ## Links and Resources
-- [Github Repo](https://github.com/401-advanced-javascript-1/lab-13-bearerAuth/tree/submission)
-- [Travis](https://www.travis-ci.com/401-advanced-javascript-1/lab-13-bearerAuth)
+- [Github Repo](https://github.com/401-advanced-javascript-1/lab-17-TCP-ChatServer/tree/submission)
+- [Travis](https://www.travis-ci.com/401-advanced-javascript-1/lab-17-TCP-ChatServer)
 
 # Modules
 - app.js: contains functionality for read/update/write files
